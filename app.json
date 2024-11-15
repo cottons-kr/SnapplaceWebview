@@ -1,26 +1,37 @@
 {
   "expo": {
-    "name": "SnapplaceWebview",
+    "name": "스냅플레이스",
     "slug": "SnapplaceWebview",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "snapplace",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cottons.SnapplaceWebview"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#272727"
+      },
+      "package": "com.cottons.SnapplaceWebview",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "MEDIA_LIBRARY",
+        "ACCESS_MEDIA_LOCATION"
+      ]
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/adaptive-icon.png"
     },
     "plugins": [
       "expo-router",
@@ -28,14 +39,36 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#272727"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "앱이 위치 정보를 사용하여 현재 위치를 표시합니다.",
+          "locationAlwaysPermission": "앱이 백그라운드에서도 위치 정보를 사용합니다.",
+          "locationWhenInUsePermission": "앱이 위치 정보를 사용하여 현재 위치를 표시합니다."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "앱이 카메라를 사용하여 사진과 동영상을 촬영합니다.",
+          "microphonePermission": "앱이 마이크를 사용하여 동영상 촬영시 오디오를 녹음합니다."
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a5ae6706-4397-4119-8826-d2a4b149d3d8"
+      }
     }
   }
 }
