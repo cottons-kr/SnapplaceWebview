@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { WebView } from 'react-native-webview';
-import { StyleSheet } from 'react-native';
 import * as Location from 'expo-location';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import { useEffect } from 'react';
+import { SafeAreaView, View } from 'react-native';
 
 async function requestPermissions() {
   const { status: locationStatus } = await Location.requestForegroundPermissionsAsync();
@@ -32,23 +32,19 @@ export default function App() {
   }, []);
 
   return (
-    <WebView
-      style={styles.container}
-      source={{ uri: 'https://e8coss0owsowc0kc40ow8g0c.apne2a.algorix.cloud/' }}
-      allowFileAccess={true}
-      scalesPageToFit={true}
-      originWhitelist={["*"]}
-      allowsBackForwardNavigationGestures={true}
-      bounces={false}
-      geolocationEnabled={true}
-      allowsInlineMediaPlayback={true}
-      mediaPlaybackRequiresUserAction={false}
-    />
+    <View style={{ flex: 1, backgroundColor: '#272727' }}>
+      <WebView
+        style={{ flex: 1, width: '100%', height: '100%' }}
+        source={{ uri: 'https://e8coss0owsowc0kc40ow8g0c.apne2a.algorix.cloud/' }}
+        allowFileAccess={true}
+        scalesPageToFit={true}
+        originWhitelist={["*"]}
+        allowsBackForwardNavigationGestures={true}
+        bounces={false}
+        geolocationEnabled={true}
+        allowsInlineMediaPlayback={true}
+        mediaPlaybackRequiresUserAction={false}
+      />
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
