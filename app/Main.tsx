@@ -4,7 +4,7 @@ import * as Location from 'expo-location';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import { useEffect } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 
 async function requestPermissions() {
   const { status: locationStatus } = await Location.requestForegroundPermissionsAsync();
@@ -44,6 +44,10 @@ export default function App() {
         geolocationEnabled={true}
         allowsInlineMediaPlayback={true}
         mediaPlaybackRequiresUserAction={false}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        androidHardwareAccelerationDisabled={false}
+        androidLayerType="hardware"
       />
     </View>
   );
